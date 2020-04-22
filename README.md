@@ -495,8 +495,45 @@ http localhost:8080/orders     # 모든 주문의 상태가 "배송됨"으로 �
 
 각 구현체들은 각자의 source repository 에 구성되었고, 사용한 CI/CD 플랫폼은 azure를 사용하였으며, pipeline build script 는 각 프로젝트 폴더 이하에 cloudbuild.yml 에 포함되었다.
 
+# 처음에는  replica가 1개로 되어있음
 
-## 동기식 호출 / 서킷 브레이킹 / 장애격리
+![CICD결과_구매시스템(purchasingSystem)_replica=1](https://user-images.githubusercontent.com/61151016/80044117-81c72500-853e-11ea-9a03-368bc4426f3a.PNG)
+
+# manifest밑에  deployment.yml 에서 replica 3 으로 수정
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: purchasesystem 
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: purchasesystem 
+    spec:
+      containers:
+        - name: purchasesystem 
+          image: admin9.azurecr.io/purchasesystem
+          ports:
+          - containerPort: 8080
+
+# CI/CD 자동 기동 확인
+
+![replica변경_CICD](https://user-images.githubusercontent.com/61151016/80044173-a6230180-853e-11ea-8d0e-9d0aa72cdb14.PNG)
+
+# 구매시스템 3개 Running 확인
+
+![CICD결과_구매시스템(purchasingSystem)_replica=3](https://user-images.githubusercontent.com/61151016/80044256-e4b8bc00-853e-11ea-909e-a87c29eaf107.PNG)
+
+##self healing 확인
+
+AZURE CLI에서 kubectl get pods --all
+
+아래 삭제후 재기동됨을 알수 있음
+
+![image](https://user-images.githubusercontent.com/61151016/80044429-6e688980-853f-11ea-85a5-f8290bdd8a5e.png)
+
+** 미구현 ## 동기식 호출 / 서킷 브레이킹 / 장애격리 
 
 * 서킷 브레이킹 프레임워크의 선택: Spring FeignClient + Hystrix 옵션을 사용하여 구현함
 
