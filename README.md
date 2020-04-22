@@ -7,7 +7,7 @@
 
 # Table of contents
 
-- [예제 - 음식배달](#---)
+- [예제 - 영](#---)
   - [서비스 시나리오](#서비스 시나리오)
   - [체크포인트](#체크포인트)
   - [분석/설계](#분석설계)
@@ -116,29 +116,25 @@
 ## 부적격 이벤트 탈락
 
 ## 액터, 커맨드 부착하여 읽기 좋게
-영화관리자,사용자,구매시스템
+영화관리자,고객,구매시스템
 
 ## 어그리게잇으로 묶기
-
-    - app의 Order, store 의 주문처리, 결제의 결제이력은 그와 연결된 command 와 event 들에 의하여 트랜잭션이 유지되어야 하는 단위로 그들 끼리 묶어줌
+영화,구매,결제
 
 ## 바운디드 컨텍스트로 묶기
-
+각 어그리게잇중심으로 엑터 및 이벤트 연결
 
     - 도메인 서열 분리 
-        - Core Domain:  app(front), store : 없어서는 안될 핵심 서비스이며, 연견 Up-time SLA 수준을 99.999% 목표, 배포주기는 app 의 경우 1주일 1회 미만, store 의 경우 1개월 1회 미만
-        - Supporting Domain:   marketing, customer : 경쟁력을 내기위한 서비스이며, SLA 수준은 연간 60% 이상 uptime 목표, 배포주기는 각 팀의 자율이나 표준 스프린트 주기가 1주일 이므로 1주일 1회 이상을 기준으로 함.
-        - General Domain:   pay : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 (핑크색으로 이후 전환할 예정)
+        - Core Domain:  영화,구매 : 없어서는 안될 핵심 서비스이며, 연견 Up-time SLA 수준을 99.999% 목표, 배포주기는 app 의 경우 1주일 1회 미만, store 의 경우 1개월 1회 미만
+        - Supporting Domain: 없음 : 경쟁력을 내기위한 서비스이며, SLA 수준은 연간 60% 이상 uptime 목표, 배포주기는 각 팀의 자율이나 표준 스프린트 주기가 1주일 이므로 1주일 1회 이상을 기준으로 함.
+        - General Domain:   결제 : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 (핑크색으로 이후 전환할 예정)
 
 ## 폴리시 부착 (괄호는 수행주체, 폴리시 부착을 둘째단계에서 해놔도 상관 없음. 전체 연계가 초기에 드러남)
-
-![image](https://user-images.githubusercontent.com/487999/79683633-5aced180-8266-11ea-8f42-c769eb88dfb1.png)
-
+평가점수업데이트, 구매횟수업데이트, 결제취소
 ## 폴리시의 이동과 컨텍스트 매핑 (점선은 Pub/Sub, 실선은 Req/Resp)
 
-![image](https://user-images.githubusercontent.com/487999/79683641-5f938580-8266-11ea-9fdb-4e80ff6642fe.png)
-
 ## 완성된 1차 모형
+
 
 http://msaez.io/#/storming/MYhHOd1fUNMoSKD9HSjeL8vHy7I2/mine/a9abcbca9a1d3778f5d19c84353a9ab5/-M5V3iMjctusljNd_PSz
 
