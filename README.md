@@ -31,6 +31,7 @@
 1. 고객이 결제한다
 1. 구매를 하면 영화정보의 구매횟수가 변경된다
 1. 고객이 구매를 취소할 수 있다
+1. 구매를 취소하면 영화정보의 구매횟수가 
 1. 구매를 취소하면 결제가 취소된다
 1. 고객이 영화를 평가한다
 1. 영화를 평가하면 영화정보의 평점이 변경된다.
@@ -140,25 +141,24 @@
 http://msaez.io/#/storming/MYhHOd1fUNMoSKD9HSjeL8vHy7I2/mine/a9abcbca9a1d3778f5d19c84353a9ab5/-M5V3iMjctusljNd_PSz
 
 ## 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
+![req res](https://user-images.githubusercontent.com/61151016/80035950-ddd47e00-852b-11ea-9752-f8a00791d200.PNG)
 
-![image](https://user-images.githubusercontent.com/487999/79684167-3ecd2f00-826a-11ea-806a-957362d197e3.png)
-
-    - 고객이 메뉴를 선택하여 주문한다 (ok)
+    - 고객이 영화를 선택하여 구매한다 (영화조회 view-green 스티커 추가 - ok) * 영화조회 view 추가
     - 고객이 결제한다 (ok)
-    - 주문이 되면 주문 내역이 입점상점주인에게 전달된다 (ok)
-    - 상점주인이 확인하여 요리해서 배달 출발한다 (ok)
 
-![image](https://user-images.githubusercontent.com/487999/79684170-47256a00-826a-11ea-9777-e16fafff519a.png)
-    - 고객이 주문을 취소할 수 있다 (ok)
-    - 주문이 취소되면 배달이 취소된다 (ok)
-    - 고객이 주문상태를 중간중간 조회한다 (View-green sticker 의 추가로 ok) 
-    - 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다 (?)
+![image](https://user-images.githubusercontent.com/61151016/80036095-107e7680-852c-11ea-98a3-f861aec34f01.png)
+
+    - 구매를 하면 영화정보의 구매횟수가 변경된다 (ok)
+    - 고객이 영화를 평가한다 (ok)
+    - 영화를 평가하면 영화정보의 평점이 변경된다. (View-green sticker 의 추가로 ok) 
+    - 구매를 취소하면 영화정보의 구매횟수가 변경된다 (ok)
 
 
 ## 모델 수정
+위 수정사항을 반영한 최종모델 (이후로도 계속 수정이 필요함)
 
-![image](https://user-images.githubusercontent.com/487999/79684176-4e4c7800-826a-11ea-8deb-b7b053e5d7c6.png)
-    - 수정한 모델은 모든 요구사항을 커버함.
+
+    
 
 ## 비기능 요구사항에 대한 검증
 
