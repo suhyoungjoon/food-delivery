@@ -491,7 +491,17 @@ http localhost:8080/orders     # 모든 주문의 상태가 "배송됨"으로 �
 # 운영
 
 ## CI/CD 설정
+azure에서 devOps를 통해 기 생성된 리소스/acr/aks를 연결하고 새로운 pipeline을 아래 github와 연결하여 생성
 
+연결 github repository
+- suhyoungjoon/movie
+- suhyoungjoon/payment
+- suhyoungjoon/purchasingsystem
+- suhyoungjoon/gateway
+
+yml파일은 msaez에서 생성해주는 cloudbuild.yaml등을 바로 사용해서 maven추가해서 사용
+
+![cloud에서 실행 movie 연결화면](https://user-images.githubusercontent.com/61151016/80045511-99a0a800-8542-11ea-97f4-4af3004e2098.PNG)
 
 각 구현체들은 각자의 source repository 에 구성되었고, 사용한 CI/CD 플랫폼은 azure를 사용하였으며, pipeline build script 는 각 프로젝트 폴더 이하에 cloudbuild.yml 에 포함되었다.
 
